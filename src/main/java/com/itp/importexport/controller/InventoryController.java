@@ -24,7 +24,7 @@ public class InventoryController {
 	@Autowired
 	private InventoryRepository inventoryRepository;
 	
-	//get all inventory
+	//get all items in inventory
 	@GetMapping("/inventory")
 	public List<Inventory> getAllInventory(){
 		return inventoryRepository.findAll();
