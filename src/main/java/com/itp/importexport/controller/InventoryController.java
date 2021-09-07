@@ -1,11 +1,13 @@
 package com.itp.importexport.controller;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +63,19 @@ public class InventoryController {
 		Inventory updatedInventory = inventoryRepository.save(inventory);
 		
 		return ResponseEntity.ok(updatedInventory);
+	}
+	
+	//Delete inventory rest API
+	@DeleteMapping("/inventory/{inventoryID}")
+	public ResponseEntity<Map<String, Boolean>> deleteInventory(Integer inventoryID){
+		
+		Inventory inventory = inventoryRepository.findById(inventoryID).orElseThrow(() -> new ResourceNotFoundException("Inventory Item does not exist with id: " + inventoryID));
+		
+		inventoryRepository.delete(inventory);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
+		
 	}
 }
