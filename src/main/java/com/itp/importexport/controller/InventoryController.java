@@ -24,7 +24,7 @@ public class InventoryController {
 	@Autowired
 	private InventoryRepository inventoryRepository;
 	
-	//get all items in inventory
+	//get all items in the inventory
 	@GetMapping("/inventory")
 	public List<Inventory> getAllInventory(){
 		return inventoryRepository.findAll();
@@ -36,7 +36,7 @@ public class InventoryController {
 		return inventoryRepository.save(inventory);
 	}
 	
-	//get inventory by id rest API
+	//get inventory item by id rest API
 	@GetMapping("/inventory/{inventoryID}")
 	public ResponseEntity<Inventory> getInventoryByID(@PathVariable int inventoryID){
 		
