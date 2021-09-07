@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,5 +45,21 @@ public class InventoryController {
 		Inventory inventory = inventoryRepository.findById(inventoryID).orElseThrow(() -> new ResourceNotFoundException("Inventory Item does not exist with id: " + inventoryID));
 		
 		return ResponseEntity.ok(inventory);
+	}
+	
+	//Update inventory rest API
+	@PutMapping("/inventory/{inventoryID}")
+	public ResponseEntity<Inventory> updateInventroy(@PathVariable int inventoryID, @RequestBody Inventory inventoryDetails){
+		
+		Inventory inventory = inventoryRepository.findById(inventoryID).orElseThrow(() -> new ResourceNotFoundException("Inventory Item does not exist with id: " + inventoryID));
+		
+		inventory.setProductName(inventoryDetails.getProductName());
+		inventory.setQuantity(inventoryDetails.getQuantity());
+		inventory.setReOrder(inventoryDetails.getReOrder());
+		inventory.setCostPrice(inventoryDetails.getCostPrice());
+		
+		Inventory updatedInventory = inventoryRepository.save(inventory);
+		
+		return ResponseEntity.ok(updatedInventory);
 	}
 }
