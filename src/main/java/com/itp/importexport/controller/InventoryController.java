@@ -55,6 +55,7 @@ public class InventoryController {
 		
 		Inventory inventory = inventoryRepository.findById(inventoryID).orElseThrow(() -> new ResourceNotFoundException("Inventory Item does not exist with id: " + inventoryID));
 		
+		inventory.setProductID(inventoryDetails.getProductID());
 		inventory.setProductName(inventoryDetails.getProductName());
 		inventory.setQuantity(inventoryDetails.getQuantity());
 		inventory.setReOrder(inventoryDetails.getReOrder());
@@ -67,7 +68,7 @@ public class InventoryController {
 	
 	//Delete inventory rest API
 	@DeleteMapping("/inventory/{inventoryID}")
-	public ResponseEntity<Map<String, Boolean>> deleteInventory(Integer inventoryID){
+	public ResponseEntity<Map<String, Boolean>> deleteInventory(@PathVariable int inventoryID){
 		
 		Inventory inventory = inventoryRepository.findById(inventoryID).orElseThrow(() -> new ResourceNotFoundException("Inventory Item does not exist with id: " + inventoryID));
 		
