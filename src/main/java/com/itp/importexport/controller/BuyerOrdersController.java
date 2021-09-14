@@ -20,7 +20,7 @@ import com.itp.importexport.model.BuyerOrders;
 import com.itp.importexport.repository.BuyerOrdersRepository;
 
 
-@CrossOrigin(origins="http://localhost:3001")
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 
