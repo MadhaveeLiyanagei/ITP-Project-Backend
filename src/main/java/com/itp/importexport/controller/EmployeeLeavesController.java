@@ -20,7 +20,7 @@ import com.itp.importexport.exception.ResourceNotFoundException;
 import com.itp.importexport.model.EmployeeLeaves;
 import com.itp.importexport.repository.EmployeeLeavesRepository;
 
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeLeavesController {
