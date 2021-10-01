@@ -57,7 +57,7 @@ public class CourierController {
 			
 			
 			Courier courier = courierRepository.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+					.orElseThrow(() -> new ResourceNotFoundException("Courier not exist with id :" + id));
 			
 			courier.setName(courierDetails.getName());
 			courier.setAddress(courierDetails.getAddress());
@@ -79,7 +79,7 @@ public class CourierController {
 			courierRepository.delete(courier);
 			Map<String, Boolean> response = new HashMap<>();
 			response.put("deleted", Boolean.TRUE);
-			return ResponseEntity.ok(response);
+			return ResponseEntity.ok(response);   
 		}
 	
 	
