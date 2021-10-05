@@ -9,5 +9,4 @@ public class ItpProjectBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ItpProjectBackendApplication.class, args);
 	}
-
 }
