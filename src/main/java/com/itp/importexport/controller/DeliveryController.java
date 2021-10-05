@@ -36,7 +36,7 @@ public class DeliveryController {
 	}		
 	
 	
-	// create courier rest API
+	// create delivery rest API
 	@PostMapping("/delivery")
 	public Delivery createdelivery (@RequestBody Delivery delivery) {
 		return deliveryRepository.save(delivery);
@@ -62,14 +62,16 @@ public class DeliveryController {
 			delivery.setOrder_name(deliveryDetails.getOrder_name());
 			delivery.setOrder_address(deliveryDetails.getOrder_address());
 			delivery.setOrder_phone_number(deliveryDetails.getOrder_phone_number());
+			delivery.setOrder_courier_name(deliveryDetails.getOrder_courier_name());
+			
 		
 			Delivery updatedDelivery = deliveryRepository.save(delivery);
 			return ResponseEntity.ok(updatedDelivery);
+			
 		}
+		
 	
-			
-			
-		// delete employee rest API
+		// delete delivery rest API 
 		@DeleteMapping("/delivery/{id}")
 		public ResponseEntity<Map<String, Boolean>> deletedelivery(@PathVariable Long id){
 			Delivery delivery = deliveryRepository.findById(id)
