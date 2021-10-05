@@ -9,12 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "BuyerOrders")
 public class BuyerOrders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	
 	
 	@Column(name ="UserName")
 	private String username;
@@ -42,6 +45,7 @@ public class BuyerOrders {
 		this.email = email;
 		this.contact = contact;
 		this.date = date;
+		
 	}
 	public int getId() {
 		return id;
@@ -79,6 +83,9 @@ public class BuyerOrders {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	
+	
 	
 	
 }
