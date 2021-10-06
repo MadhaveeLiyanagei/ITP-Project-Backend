@@ -40,6 +40,7 @@ public class AdNoticesController {
 	public AdNotices createNotice(@RequestBody AdNotices adNotices) {
 		return adNoticesRepository.save(adNotices);
 	}
+	
 	//get notice by id api
 	@GetMapping("/adNotices/{id}")
 	public ResponseEntity<AdNotices> getNoticesById(@PathVariable int id){

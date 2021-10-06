@@ -8,56 +8,90 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "notices")
-public class Employee {
+@Table(name = "employee")
+public class Employee{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int employeeid;
 	
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name = "employee_name")
+	private String employeename;
 	
-	@Column(name="last_name")
-	private String lastName;
+	@Column(name = "employee_email")
+	private String employeeemail;
 	
-	@Column(name="email_id")
-	private String emailId;
+	@Column(name = "employee_phone")
+	private String employeephone;
+	
+	@Column(name = "employee_userName")
+	private String employeeusername;
+	
+	@Column(name ="employee_password")
+	private String employeepassword;
+	
+	@Column(name ="employee_address")
+	private String employeeaddress;
 	
 	public Employee() {
-		
+	
 	}
 	
-	public Employee(String firstName, String lastName, String emailId) {
+	
+	public Employee(String employeename, String employeeemail, String employeephone, String employeeusername,
+			String employeepassword, String employeeaddress) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
+		this.employeename = employeename;
+		this.employeeemail = employeeemail;
+		this.employeephone = employeephone;
+		this.employeeusername = employeeusername;
+		this.employeepassword = employeepassword;
+		this.employeeaddress = employeeaddress;
 	}
-	public long getId() {
-		return id;
+	public int getEmployeeid() {
+		return employeeid;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setEmployeeid(int employeeid) {
+		this.employeeid = employeeid;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getEmployeename() {
+		return employeename;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setEmployeename(String employeename) {
+		this.employeename = employeename;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getEmployeeemail() {
+		return employeeemail;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setEmployeeemail(String employeeemail) {
+		this.employeeemail = employeeemail;
 	}
-	public String getEmailId() {
-		return emailId;
+	public String getEmployeephone() {
+		return employeephone;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmployeephone(String employeephone) {
+		this.employeephone = employeephone;
 	}
+	public String getEmployeeusername() {
+		return employeeusername;
+	}
+	public void setEmployeeusername(String employeeusername) {
+		this.employeeusername = employeeusername;
+	}
+	public String getEmployeepassword() {
+		return employeepassword;
+	}
+	public void setEmployeepassword(String employeepassword) {
+		this.employeepassword = employeepassword;
+	}
+	public String getEmployeeaddress() {
+		return employeeaddress;
+	}
+	public void setEmployeeaddress(String employeeaddress) {
+		this.employeeaddress = employeeaddress;
+	}
+	
+	
 	
 	
 }
